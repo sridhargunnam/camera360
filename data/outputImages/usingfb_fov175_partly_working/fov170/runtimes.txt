@@ -1,0 +1,5 @@
+total frames: 1
+
+RENDER runtime: 0:00:20.759527
+
+TOTAL runtime: 0:00:20.759915

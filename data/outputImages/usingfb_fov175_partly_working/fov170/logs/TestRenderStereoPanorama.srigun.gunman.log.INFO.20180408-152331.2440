@@ -1,0 +1,27 @@
+Log file created at: 2018/04/08 15:23:31
+Running on machine: srigun
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0408 15:23:31.973943  2440 TestRenderStereoPanorama.cpp:773] Projecting camera images to spherical
+I0408 15:23:31.974433  2440 TestRenderStereoPanorama.cpp:144] Projecting side camera images to spherical coordinates
+I0408 15:23:31.974485  2440 RigDescription.cpp:86] loadSideCameraImages spawning threads
+I0408 15:23:31.974576  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam1/000000.png
+I0408 15:23:31.974781  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam2/000000.png
+I0408 15:23:31.974903  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam3/000000.png
+I0408 15:23:31.974983  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam4/000000.png
+I0408 15:23:31.975203  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam5/000000.png
+I0408 15:23:31.975381  2440 RigDescription.cpp:96] imagePath = /media/gunman/Data/thesis/stitch/available_solutions/Surround360/jetsonData/rgb/cam6/000000.png
+I0408 15:23:32.493929  2440 TestRenderStereoPanorama.cpp:149] Time to load images from file: 0.519442 sec
+I0408 15:23:34.866430  2440 TestRenderStereoPanorama.cpp:780] Rendering stereo panorama
+I0408 15:23:43.072325  2440 TestRenderStereoPanorama.cpp:793] Offset-warping images for debugging
+I0408 15:23:45.208425  2440 TestRenderStereoPanorama.cpp:891] Flattening from 4 channels to 3 channels
+I0408 15:23:46.342013  2440 TestRenderStereoPanorama.cpp:903] Sharpening
+I0408 15:23:51.416229  2440 TestRenderStereoPanorama.cpp:942] Resizing before final equirect stack (for proper video size)
+I0408 15:23:51.557132  2440 TestRenderStereoPanorama.cpp:959] Creating stereo equirectangular image
+I0408 15:23:52.612375  2440 TestRenderStereoPanorama.cpp:964] --- Runtime breakdown (sec) ---
+I0408 15:23:52.612401  2440 TestRenderStereoPanorama.cpp:965] Total:			20.6403
+I0408 15:23:52.612417  2440 TestRenderStereoPanorama.cpp:966] Spherical projection:	2.8925
+I0408 15:23:52.612423  2440 TestRenderStereoPanorama.cpp:967] Side optical flow:		6.1326
+I0408 15:23:52.612428  2440 TestRenderStereoPanorama.cpp:968] Novel view panorama:	1.85555
+I0408 15:23:52.612433  2440 TestRenderStereoPanorama.cpp:969] Flow top+bottom with sides:	2.38419e-07
+I0408 15:23:52.612442  2440 TestRenderStereoPanorama.cpp:970] Sharpen:		5.07422
+I0408 15:23:52.612447  2440 TestRenderStereoPanorama.cpp:971] Equirect -> Cubemap:	2.38419e-07
