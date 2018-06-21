@@ -257,6 +257,17 @@ void prepareNovelViewGeneratorThread(
     prevOverlapImageR = imreadExceptionOnFail(
         flowImagesPrevDir + "/overlap_" + std::to_string(leftIdx) + "_R.png",
         -1);
+    
+    //sgunnam
+
+    // const string motionDir = FLAGS_output_data_dir + "/motion/" + FLAGS_frame_number;
+    // readFlowFromFile(
+    //     flowLtoR,
+    //     motionDir + "/motionL_" + std::to_string(leftIdx) + ".bin");
+    // readFlowFromFile(
+    //     flowRtoL,
+    //     motionDir + "/motionR_" + std::to_string(leftIdx) + ".bin");
+
     // VLOG(1) << "Loaded previous frame's flow OK";
   }
 
@@ -273,15 +284,15 @@ void prepareNovelViewGeneratorThread(
   const Mat flowLtoR = novelViewGen->getFlowLtoR();
   const Mat flowRtoL = novelViewGen->getFlowRtoL();
 
-  const Mat motionL = novelViewGen->getMotionL();
-  const Mat motionR = novelViewGen->getMotionR();
+  const Mat motionLl = novelViewGen->getMotionL();
+  const Mat motionRl = novelViewGen->getMotionR();
 
   const string motionDir = FLAGS_output_data_dir + "/motion/" + FLAGS_frame_number;
-  saveFlowToFile(
-      flowLtoR,
+  saveMotionToFile(
+      motionLl,
       motionDir + "/motionL_" + std::to_string(leftIdx) + ".bin");
-  saveFlowToFile(
-      flowRtoL,
+  saveMotionToFile(
+      motionRl,
       motionDir + "/motionR_" + std::to_string(leftIdx) + ".bin");
 
   const string flowDir = FLAGS_output_data_dir + "/flow/" + FLAGS_frame_number;
@@ -823,11 +834,11 @@ void renderStereoPanorama()
 //   FLAGS_cubemap_width = 0;
 //   FLAGS_cubemap_height = 0;
 //   FLAGS_cubemap_format = "video";
-  VLOG(1) << "FLAGS " << FLAGS_rig_json_file << "\n";
-  VLOG(1) << "FLAGS " << FLAGS_imgs_dir << "\n";
-  VLOG(1) << "FLAGS " << FLAGS_frame_number << "\n";
-  VLOG(1) << "FLAGS " << FLAGS_output_data_dir << "\n";
-  VLOG(1) << "FLAGS " << FLAGS_output_equirect_path << "\n";
+//   VLOG(1) << "FLAGS " << FLAGS_rig_json_file << "\n";
+//   VLOG(1) << "FLAGS " << FLAGS_imgs_dir << "\n";
+//   VLOG(1) << "FLAGS " << FLAGS_frame_number << "\n";
+//   VLOG(1) << "FLAGS " << FLAGS_output_data_dir << "\n";
+//   VLOG(1) << "FLAGS " << FLAGS_output_equirect_path << "\n";
   VLOG(1) << "-----------------------------------------------------------------------" << "\n";
 //   VLOG(1) << FLAGS_rig_json_file << "\n";
 //   VLOG(1) << FLAGS_imgs_dir << "\n";

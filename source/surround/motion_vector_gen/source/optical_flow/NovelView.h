@@ -169,7 +169,7 @@ public:
   Mat getFlowRtoL() { return flowRtoL; }
 
   Mat getMotionL() { return motionL; }
-  Mat getMOtionR() { return motionR; }
+  Mat getMotionR() { return motionR; }
 };
 
 // the name "asymmetric" here refers to the idea that we compute an optical flow from

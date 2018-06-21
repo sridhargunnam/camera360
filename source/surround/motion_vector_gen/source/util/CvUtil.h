@@ -59,6 +59,10 @@ Mat featherAlphaChannel(const Mat& src, int erodeSize);
 void saveFlowToFile(const Mat& flow, const string& filename);
 Mat readFlowFromFile(const string& filename);
 
+//sgunnam
+void saveMotionToFile(const Mat &motion, const string &filename);
+Mat readMotionFromFile(const string &filename);
+
 // given a 4-channel image, make a circle centered at the middle and set the alpha channel
 // to 0 outside the circle.
 void circleAlphaCut(Mat& imageBGRA, const float radius);

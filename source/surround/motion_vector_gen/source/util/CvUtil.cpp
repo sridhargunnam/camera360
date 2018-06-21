@@ -177,6 +177,9 @@ void saveFlowToFile(const Mat& flow, const string& filename) {
   fclose(file);
 }
 
+
+
+
 Mat readFlowFromFile(const string& filename) {
   FILE* file = fopen(filename.c_str(), "rb");
   if (file == NULL) {
@@ -196,6 +199,58 @@ Mat readFlowFromFile(const string& filename) {
   }
   fclose(file);
   return flow;
+}
+
+
+// sgunnam
+Mat readMotionFromFile(const string &filename)
+{
+  FILE *file = fopen(filename.c_str(), "rb");
+  if (file == NULL)
+  {
+    throw VrCamException("file not found: " + filename);
+  }
+  int rows, cols;
+  fread((void *)&rows, sizeof(rows), 1, file);
+  fread((void *)&cols, sizeof(cols), 1, file);
+  Mat motion(Size(cols, rows), CV_32F);
+  for (int y = 0; y < motion.rows; ++y)
+  {
+    for (int x = 0; x < motion.cols; ++x)
+    {
+      float fx;
+      fread((void *)(&fx), sizeof(fx), 1, file);
+      motion.at<float>(y, x) = fx ;
+    }
+  }
+  fclose(file);
+  return motion;
+}
+
+void saveMotionToFile(const Mat &motion, const string &filename)
+{
+  // VLOG(1) << " Echo Motion type " << motion.type() << "\n" ;
+  assert(motion.type() == CV_32F);
+  int rows = motion.rows;
+  int cols = motion.cols;
+  FILE *file = fopen(filename.c_str(), "wb");
+  if (file == NULL)
+  {
+    throw VrCamException("file not found: " + filename);
+  }
+  fwrite((void *)(&rows), sizeof(rows), 1, file);
+  fwrite((void *)(&cols), sizeof(cols), 1, file);
+  for (int y = 0; y < motion.rows; ++y)
+  {
+    for (int x = 0; x < motion.cols; ++x)
+    {
+      float fx = motion.at<float>(y, x);
+      // float fy = motion.at<Point2f>(y, x).y;
+      fwrite((void *)(&fx), sizeof(fx), 1, file);
+      // fwrite((void *)(&fy), sizeof(fy), 1, file);
+    }
+  }
+  fclose(file);
 }
 
 void circleAlphaCut(Mat& imageBGRA, const float radius) {
