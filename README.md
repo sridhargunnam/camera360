@@ -1,2 +1,2 @@
 # mastersThesis
-My masters thesis on 360 panorama stitching architecture
+360 panorama stitching using 6 IMX274 cameras and Jetson TX2 board.
